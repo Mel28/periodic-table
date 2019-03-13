@@ -128,6 +128,8 @@ body {
 
 /*Media queries for responsive design*/
 
+/*Media query for large screens*/
+
 @media screen and (min-width: 1024px){
   .element-name{
     display: none;
@@ -146,6 +148,7 @@ body {
   display: none;
 }
 }
+/*media query for small to medium devices ipads etc...*/
 
 @media screen and (max-width: 768px) {
   body{
@@ -185,6 +188,8 @@ body {
   align-items: center;
 }
 }
+
+/*media query for small screens mobiles etc..*/
 
 @media screen and (max-width: 480px) {
 .periodic-table{
