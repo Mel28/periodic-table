@@ -4,18 +4,24 @@ html {
 
 
 body {
-  font-family: Phenomena, script;
+  font-family: 'Crete Round', serif;
   margin: 80px;
   background: #111;
   color: #000;
   counter-reset: element;
 }
+
+/* display and spacing of table elements*/
+
 .periodic-table {
   display: grid;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   padding-left: 0;
 }
+
+/*dimensions of element list item*/
+
 .periodic-table > li {
   display: flex;
   position: relative;
@@ -23,9 +29,11 @@ body {
   align-items: center;
   height: 80px;
   border-radius: 3px;
-  background: rgb(92, 232, 176);
   font-weight: bold;
 }
+
+/* features of counter increment*/
+
 .periodic-table > li:before {
   counter-increment: element; 
   content: counter(element);
@@ -35,46 +43,52 @@ body {
   font-size: 10px;
   font-weight: lighter;
 }
-
+/* font styling and positioning of paragraph item */
 p{
-    position: absolute;
+  position: absolute;
   bottom: 5px;
   left: 6px;
   font-size: 10px;
   font-weight: lighter;
 }
 
-#helium {
-  grid-column-start: 18;
-}
-#boron, #aluminium {
-  grid-column-start: 13;
-}
-#cerium, #thorium {
-  grid-column-start: 4;
-}
-.periodic-table > li:nth-child(n+58):nth-last-child(n+48) {
-  grid-row-start: 8;
-}
-.periodic-table > li:nth-child(n+90):nth-last-child(n+16) {
-  grid-row-start: 9;
-}
-.periodic-table:before {
-  display: block;
-  content: '';
-  grid-row: 8 / 10;
-  grid-column: 1 / 4;
-}
+/* font of element abbreviation*/
 
 .periodic-table > li abbr {
   font-family: 'Crete Round', serif;
   font-size: 20px;
 }
 
+/* special positioning */
+.column-position-18 {
+  grid-column-start: 18;
+}
+.column-position-13 {
+  grid-column-start: 13;
+}
+.column-position-4 {
+  grid-column-start: 4;
+}
+
+.actinide-exception {
+  grid-row-start: 9;
+}
+.lanthanide-exception {
+  grid-row-start: 8;
+}
+.periodic-table:before {
+  display: block;
+  content: '';
+  grid-row: 8 / 10;
+  grid-column: 1 / 4;
+} 
+
+/* element colour groupings */
+
 .periodic-table .noble-gas {
   background: rgb(244, 90, 90);
 }
-.periodic-table .diatomic-nonmetal {
+.periodic-table .halogen {
   background: rgb(244, 224, 90);
 }
 .periodic-table .alkali {
@@ -85,6 +99,9 @@ p{
 }
 .periodic-table .alkaline {
   background: rgb(255, 250, 117);
+}
+.periodic-table .transition-metals{
+ background: rgb(92, 232, 176);
 }
 .periodic-table .unknown {
   background: rgb(0, 118, 209);
@@ -100,4 +117,55 @@ p{
 }
 .periodic-table .polyatomic-non-metal {
   background: rgb(244, 165, 90);  
+}
+
+/*Media queries for responsive design*/
+
+@media screen and (max-width: 768px) {
+  body{
+    margin:20px;
+  }
+ .periodic-table{
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     grid-auto-rows: auto;
+     grid-template-columns: 1fr 1fr;
+ }
+ .periodic-table > li abbr{
+   font-size: 50px;
+ }
+ .periodic-table > li:before{
+   font-size: 20px;
+ }
+ .periodic-table > li{
+   margin-top: 5px;
+   margin-bottom: 5px;
+ }
+ p{
+   font-size: 20px;
+   margin-bottom: 2px;
+   
+ }
+}
+
+@media screen and (max-width: 480px) {
+.periodic-table{
+  grid-template-columns: 1fr;
+}
+ .periodic-table > li abbr{
+   font-size: 20px;
+ }
+ .periodic-table > li:before{
+   font-size: 15px;
+ }
+ .periodic-table > li{
+   margin-top: 3px;
+   margin-bottom: 3px;
+ }
+ p{
+   font-size: 15px;
+   margin-bottom: 2px;
+   
+ }
 }
