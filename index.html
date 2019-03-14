@@ -7,8 +7,13 @@
     <title>Periodic table</title>
     <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css" type="text/css" />
+    <script type="text/javascript" src="static/script.js"></script>
 </head>
 <body>
+    <form NAME="myForm" ACTION="" METHOD="GET">
+        <input type="text" id="elementSearch" name="inputbox" placeholder="Search the elements..." />
+        <input type="button" name="button" Value="Search" onClick="searchElement(this.form)">
+    </form>
     <div>
         <ol class="periodic-table">
         <li id="hydrogen" class="hydrogen">
