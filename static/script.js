@@ -1,8 +1,12 @@
+function load(){
+    var input = document.getElementById('elementSearch');
+    input.addEventListener("input",searchElement);
+    
+}
 //function for search box
-
-function searchElement(form) {
+function searchElement() {
    var listItems = document.getElementsByTagName('li'); 
-   var elementSearch = document.getElementById('elementSearch').value;
+   var elementSearch = this.value
    var atomicMass= document.getElementsByClassName('atomic-mass');
    console.log(elementSearch);
    
@@ -23,7 +27,10 @@ function searchElement(form) {
     //if statement for displaying none when no match or partial match has been found
         if(num == -1 && massNum == -1 )
         {
-            element.style.display = "none";
+            element.style.visibility = "hidden";
+        }
+        else {
+            element.style.visibility = "unset";
         }
     }
 }
@@ -42,3 +49,4 @@ function resetElements(form) {
        }
    }
 }
+  window.onload = load;
