@@ -20,9 +20,20 @@ function loadJSON(callback) {
             callback(xobj.responseText);
           }
     };
-    xobj.send(null);  
+    xobj.send();  
  }
 
 loadJSON(function(json) {
-  console.log(json); // this will log out the json object
+  console.log(json); // this will log out the json object 
+  console.log(JSON.parse(json));
 });
+
+var hydrogen = {
+    name: "Hydrogen",
+    appearance : "colorless gas",
+    atomic_mass  : 1.008,
+    element_detail : function() {
+       return this.name + " " + this.atomic_mass;
+    }
+};
+
