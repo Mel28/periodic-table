@@ -21,8 +21,7 @@ body {
 }
 
 /*dimensions of element list item*/
-
-.periodic-table > li {
+ .periodic-table > li {
   display: flex;
   position: relative;
   justify-content: center;
@@ -69,19 +68,30 @@ body {
 /* special positioning */
 .column-position-18 {
   grid-column-start: 18;
+  background: rgb(244, 90, 90);
 }
 .column-position-13 {
   grid-column-start: 13;
+  background: rgb(207, 133, 242);
 }
 .column-position-4 {
   grid-column-start: 4;
+  grid-row-start: 9;
+  background: rgb(237, 28, 150);
 }
 
 .actinide-exception {
   grid-row-start: 9;
+  background: rgb(237, 28, 150); 
 }
 .lanthanide-exception {
   grid-row-start: 8;
+  background: rgb(160, 237, 28);
+}
+.col-position-13-Al{
+  background: rgb(92, 232, 176);
+  grid-column-start: 13;
+  
 }
 .periodic-table:before {
   display: block;

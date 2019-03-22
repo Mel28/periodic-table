@@ -6,13 +6,13 @@ function load(){
 //function for search box
 function searchElement() {
    var listItems = document.getElementsByTagName('li'); 
-   var elementSearch = this.value
+   var elementSearch = this.value;
    var atomicMass= document.getElementsByClassName('atomic-mass');
    console.log(elementSearch);
    
    //for loop to loop through list items
    
-    for (var index= 0; index < listItems.length; index++)
+    for (var index= 0; index < json.length; index++)
     {
         var element = listItems[index];
         var searchMass = atomicMass[index];
