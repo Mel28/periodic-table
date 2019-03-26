@@ -88,6 +88,7 @@ function filterElements() {
   
   for (var index= 0; index < elements.length; index++) {
     var element = elements[index];
+    var elementHtml = document.getElementById(element.name);
    //sets atomic mass to 1 dp 
       var searchMass = element.atomic_mass.toFixed(1);
       //variables for case sensitive search .toLowerCase method
@@ -100,10 +101,10 @@ function filterElements() {
   //if statement for displaying none when no match or partial match has been
       if(match == -1 && massNumMatch == -1 )
       {
-         document.getElementById(element.name).style.visibility = "hidden";
+        elementHtml.style.visibility = "hidden";
       }
       else {
-       document.getElementById(element.name).style.visibility = "unset";
+        elementHtml.style.visibility = "unset";
       }
   }
 });
