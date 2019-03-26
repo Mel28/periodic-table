@@ -25,7 +25,7 @@ function loadJSON(callback) {
 //binds to html input box
 function load() {
   var input = document.getElementById("elementSearch");
-  input.addEventListener("input",searchElement);
+  input.addEventListener("input",filterElements);
   
   loadJSON(function (json) {
     var elements = JSON.parse(json).elements;
@@ -49,7 +49,6 @@ function load() {
       //console.log(el.name);
       //console.log(elementList);
       
-      //listItem.textContent = el.name;
       atomicMassValue.textContent = el.atomic_mass;
       abbreviationSymbol.textContent = el.symbol;
       abbrTitle.textContent = el.name;
@@ -61,13 +60,13 @@ function load() {
       atomicMassValue.className = "atomic-mass";
       abbreviationSymbol.className = "element";
       elementTitle.className = "element-name";
-    //abbreviationSymbol.attributeName = 'Title';
       
       orderList.appendChild(listItem); // adds to the DOM
       listItem.appendChild(atomicMassValue);
       listItem.appendChild(abbreviationSymbol);
       listItem.appendChild(elementTitle);
       abbreviationSymbol.setAttributeNode(abbrTitle);  //adds title attr to abbr element
+      
       
     });
   });
@@ -77,33 +76,45 @@ function load() {
 
 
   //function for search box
-function searchElement() {
-  var listItems = document.getElementsByTagName('li');
+function filterElements() {
   var elementSearch = this.value;
-  var atomicMass= document.getElementsByClassName('atomic-mass');
  // var elementsName = document.getElementsById('element-name');
   console.log(elementSearch);
   
-  for (var index= 0; index < listItems.length; index++) {
-    var element = listItems[index];
-      var searchMass = atomicMass[index];
+  loadJSON(function (json) {
+    var elements = JSON.parse(json).elements;
+    
+     
+  
+  for (var index= 0; index < elements.length; index++) {
+    var element = elements[index];
+   //sets atomic mass to 1 dp 
+      var searchMass = element.atomic_mass.toFixed(1);
       //variables for case sensitive search .toLowerCase method
       var searchBoxLowerCase = elementSearch.toLowerCase();
-      var listItemLowerCase = element.id.toLowerCase();
-      var atomicMassValue = searchMass.innerHTML;
+      var elementsLowerCase = element.name.toLowerCase();
   //variable for partial match search. Using .indexOf method
   
-      var num = listItemLowerCase.indexOf(searchBoxLowerCase);
-      var massNum = atomicMassValue.indexOf(searchBoxLowerCase);
+      var match = elementsLowerCase.indexOf(searchBoxLowerCase);
+      var massNumMatch = searchMass.indexOf(searchBoxLowerCase);
   //if statement for displaying none when no match or partial match has been
-      if(num == -1 && massNum == -1 )
+      if(match == -1 && massNumMatch == -1 )
       {
-          element.style.visibility = "hidden";
+         document.getElementById(element.name).style.visibility = "hidden";
       }
       else {
-          element.style.visibility = "unset";
+       document.getElementById(element.name).style.visibility = "unset";
       }
   }
+});
 }
+
  
 window.onload = load;
+
+//tried:
+
+//document.getElementsByClassName(".elementId")
+//getAttribute('id').
+//document.querySelectorAll()
+//className += "elementId"; 
