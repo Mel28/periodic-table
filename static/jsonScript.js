@@ -5,16 +5,19 @@
   };
     reader.readAsText(file);
 }*/
-function loadJSON(callback) {
+function loadJSON(callback)
+{
 
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
         xobj.open('GET', 'static/data/elementData.json', true); // Makes the call to the file path
   
   //onreadystatechange contains the event handler to be called when the readystatechange event is fired
-  xobj.onreadystatechange = function () {
+  xobj.onreadystatechange = function ()
+  {
       //readystate must be: complete and response received (4) or status 200 in console
-        if (xobj.readyState == 4 && xobj.status == "200") {
+        if (xobj.readyState == 4 && xobj.status == "200") 
+        {
           // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
           callback(xobj.responseText);
         }
@@ -22,9 +25,13 @@ function loadJSON(callback) {
   xobj.send();  
 }
 //binds to html input box
-function load() {
+function load() 
+{
  
-loadJSON(function(json) {
+loadJSON(function(json) 
+{
+    var input = document.getElementById("elementSearch");
+  input.addEventListener("input",filterElements);
   
     var elements = JSON.parse(json).elements;
     
@@ -33,14 +40,16 @@ loadJSON(function(json) {
     
     //using chaining and the .map method, tells code to access elements var (json data), and target atomic_mass and return a new array rounded to nearest whole number. 
     elements 
-    .map(function(el) {
+    .map(function(el)
+    {
       
     el.atomic_mass = +(el.atomic_mass).toFixed(1);
       
       return el;
     })
     
-    .forEach(function (el) {
+    .forEach(function (el) 
+    {
       
      var listItem = document.createElement('li'); //creates item in memory
      var atomicMassValue = document.createElement('p');
@@ -67,15 +76,14 @@ loadJSON(function(json) {
       abbreviationSymbol.setAttributeNode(abbrTitle);  //adds title attr to abbr element
     }) 
      //function for search box
-function filterElements(elements) {
-  
-     var input = document.getElementById("elementSearch");
-  input.addEventListener("input",filterElements);
+function filterElements()
+{
      var elementSearch = this.value;
  // var elementsName = document.getElementsById('element-name');
   console.log(elementSearch);
  
-  for (var i= 0; i < elements.length; i++) {
+  for (var i= 0; i < elements.length; i++) 
+  {
      var element = elements[i];
      var elementHtml = document.getElementById(element.name);
    //sets atomic mass to 1 dp 
@@ -100,7 +108,8 @@ function filterElements(elements) {
   }
 } 
  
- filterElements(JSON.parse(json).elements);
+// filterElements(JSON.parse(json).elements);
+ console.log(elements);
     
   });
    
