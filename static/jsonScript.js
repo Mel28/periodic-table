@@ -75,19 +75,15 @@ function load() {
 }
 
 
-  //function for search box
-function filterElements() {
+//function for search box
+function filterElements(elements) {
+ 
   var elementSearch = this.value;
  // var elementsName = document.getElementsById('element-name');
   console.log(elementSearch);
   
-  loadJSON(function (json) {
-    var elements = JSON.parse(json).elements;
-    
-     
-  
-  for (var index= 0; index < elements.length; index++) {
-    var element = elements[index];
+  for (var i= 0; i < elements.length; i++) {
+    var element = elements[i];
     var elementHtml = document.getElementById(element.name);
    //sets atomic mass to 1 dp 
       var searchMass = element.atomic_mass.toFixed(1);
@@ -98,7 +94,7 @@ function filterElements() {
   
       var match = elementsLowerCase.indexOf(searchBoxLowerCase);
       var massNumMatch = searchMass.indexOf(searchBoxLowerCase);
-  //if statement for displaying none when no match or partial match has been
+  //if statement for displaying hidden when no match or partial match has been
       if(match == -1 && massNumMatch == -1 )
       {
         elementHtml.style.visibility = "hidden";
@@ -107,7 +103,6 @@ function filterElements() {
         elementHtml.style.visibility = "unset";
       }
   }
-});
 }
 
  
