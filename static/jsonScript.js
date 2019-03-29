@@ -7,9 +7,9 @@
 }*/
 function loadJSON(callback) {
 
-  var xobj = new XMLHttpRequest();
-      xobj.overrideMimeType("application/json");
-  xobj.open('GET', 'static/data/elementData.json', true); // Makes the call to the file path
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open('GET', 'static/data/elementData.json', true); // Makes the call to the file path
   
   //onreadystatechange contains the event handler to be called when the readystatechange event is fired
   xobj.onreadystatechange = function () {
@@ -21,33 +21,32 @@ function loadJSON(callback) {
   };
   xobj.send();  
 }
-
 //binds to html input box
 function load() {
-  var input = document.getElementById("elementSearch");
-  input.addEventListener("input",filterElements);
+ 
+loadJSON(function(json) {
   
-  loadJSON(function (json) {
     var elements = JSON.parse(json).elements;
+    
     //rendering HTML with JavaScript adding list item to ordered list
     var orderList = document.querySelector('.periodic-table');
     
     //using chaining and the .map method, tells code to access elements var (json data), and target atomic_mass and return a new array rounded to nearest whole number. 
     elements 
-    .map(function(el){
-      el.atomic_mass = +(el.atomic_mass).toFixed(1);
+    .map(function(el) {
+      
+    el.atomic_mass = +(el.atomic_mass).toFixed(1);
       
       return el;
     })
+    
     .forEach(function (el) {
+      
      var listItem = document.createElement('li'); //creates item in memory
      var atomicMassValue = document.createElement('p');
      var abbreviationSymbol = document.createElement('abbr');
      var abbrTitle = document.createAttribute('title');
      var elementTitle = document.createElement('p');
-       
-      //console.log(el.name);
-      //console.log(elementList);
       
       atomicMassValue.textContent = el.atomic_mass;
       abbreviationSymbol.textContent = el.symbol;
@@ -66,25 +65,19 @@ function load() {
       listItem.appendChild(abbreviationSymbol);
       listItem.appendChild(elementTitle);
       abbreviationSymbol.setAttributeNode(abbrTitle);  //adds title attr to abbr element
-      
-      
-    });
-  });
-  
-  console.log(input);
-}
-
-
-//function for search box
+    }) 
+     //function for search box
 function filterElements(elements) {
- 
-  var elementSearch = this.value;
+  
+     var input = document.getElementById("elementSearch");
+  input.addEventListener("input",filterElements);
+     var elementSearch = this.value;
  // var elementsName = document.getElementsById('element-name');
   console.log(elementSearch);
-  
+ 
   for (var i= 0; i < elements.length; i++) {
-    var element = elements[i];
-    var elementHtml = document.getElementById(element.name);
+     var element = elements[i];
+     var elementHtml = document.getElementById(element.name);
    //sets atomic mass to 1 dp 
       var searchMass = element.atomic_mass.toFixed(1);
       //variables for case sensitive search .toLowerCase method
@@ -102,11 +95,19 @@ function filterElements(elements) {
       else {
         elementHtml.style.visibility = "unset";
       }
+      
+      
   }
+} 
+ 
+ filterElements(JSON.parse(json).elements);
+    
+  });
+   
 }
 
- 
 window.onload = load;
+
 
 //tried:
 
@@ -114,3 +115,15 @@ window.onload = load;
 //getAttribute('id').
 //document.querySelectorAll()
 //className += "elementId"; 
+
+/*function a() {
+   var x = 5,
+      obj = {};
+   function b(){
+      // access x or obj...
+      console.log(x)
+   }
+   b();
+}
+
+a(); */
