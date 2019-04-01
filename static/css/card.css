@@ -1,0 +1,31 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 500px;
+
+}
+
+body{
+    font-family: 'Crete Round', serif;
+}
+.card {
+  border: 1px solid #f98181;
+  border-radius: .25em;
+}
+
+img {
+  min-height: 180px;
+  width:100%;
+  height:100%;
+}
+
+.content {
+  padding: 15px;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #2196F3;
+  padding: .5em 1em;
+  cursor: pointer;
+  border-radius: .25em;
+}

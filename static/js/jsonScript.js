@@ -104,7 +104,6 @@ function load() {
 
 window.onload = load;
 
-
 //tried:
 
 //document.getElementsByClassName(".elementId")
