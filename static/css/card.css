@@ -6,6 +6,10 @@
 
 body{
     font-family: 'Crete Round', serif;
+    font-size: medium;
+}
+span{
+    font-style: bold;
 }
 .card {
   border: 1px solid #f98181;
