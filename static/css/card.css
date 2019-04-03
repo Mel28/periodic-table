@@ -1,11 +1,13 @@
-#popup {
+/*#popup {
   z-index: 10;
-}
+}*/
 
 .grid-container {
   display: grid;
   grid-template-columns: 500px;
-
+  position: absolute;
+  top: 100px;
+  left: calc(50% - 250px);
 }
 
 body{
@@ -20,8 +22,10 @@ body{
  /* border: 1px solid #f98181;
   background: rgba(232, 150, 226, .2)
   background: rgba(249, 129, 129, .2);*/
-   background: rgba(91, 194, 234, .2);
+   background: rgb(91, 194, 234);
+
 }
+
 
 img {
   min-height: 180px;
@@ -29,14 +33,36 @@ img {
   height:100%;
 }
 
+ #showImage{
+  font-family: 'Crete Round', serif;
+  background: #4abad6;
+  font-size: x-large;
+  font-weight: bolder;
+  min-height: 180px;
+  width:100%;
+  height:100%;
+  
+}
+
 .content {
   padding: 15px;
 }
 
 button {
-  background-color: transparent;
+  background-color: silver;
   border: 1px solid #2196F3;
   padding: .5em 1em;
   cursor: pointer;
   border-radius: .25em;
 }
+button:hover {
+  background-color: rgb(70, 185, 214);
+}
+
+button::after {
+  display: none;
+  visibility: hidden;
+}
+
+
+/*#showImage*/
