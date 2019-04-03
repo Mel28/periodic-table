@@ -120,7 +120,7 @@ function load() {
         cardMainDiv.appendChild(cardDiv);
         cardDiv.appendChild(imgDiv);
         imgDiv.appendChild(image);
-        document.getElementById("showImage").src = `https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/${el.name}_Spectra.jpg/120px-${el.name}_Spectra.jpg`//el.spectral_img;
+        document.getElementById("showImage").src = `http://chemistry.bd.psu.edu/jircitano/${el.symbol}.gif` // https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/${el.name}_Spectra.jpg/120px-${el.name}_Spectra.jpg`//el.spectral_img;
        // image.setAttributeNode(srcImage);
         imgDiv.appendChild(contentDiv);
         contentDiv.appendChild(cardTitle);
