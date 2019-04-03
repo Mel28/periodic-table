@@ -1,20 +1,29 @@
+function hydrogenPopup() {
+var overlay = document.getElementById("overLay");
+var xpopup = document.getElementById("hydrogenPopup");
+document.getElementById("Hydrogen").onclick = function () {
+    overlay.style.display = "block";
+    xpopup.style.display = "block";
+};
 
-function myFunction() {
+overlay.onclick = function () {
+   overlay.style.display = "none";
+    xpopup.style.display = "none";
+};
+}
+
+/*function myFunction() {
 const li = document.querySelector('li');
 li.addEventListener('click', event => {
   li.innerHTML = `Click count: ${event.detail}`;
 });
 }
-
-
-
-
 // When the user clicks on <li>, open the popup
 //function myFunction() {
 //  var popup = document.getElementById("myPopup");
   
 //}
-/*<div class="popup" onclick="myFunction()">Click me!
+<div class="popup" onclick="myFunction()">Click me!
   <span class="popuptext" id="myPopup">Popup text...</span>
 </div>*/
 
@@ -31,4 +40,6 @@ li.addEventListener('click', event => {
   
   var popUpClick = document.createAttribute('onclick="myFunction()"');
   popUpClick.textContent = myFunction();
-  listItem.setAttributeNode(popUpClick); */
+  listItem.setAttributeNode(popUpClick);
+ 
+ */

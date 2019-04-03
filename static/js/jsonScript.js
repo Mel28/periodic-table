@@ -42,8 +42,8 @@ function load() {
         return el;
       })
       .forEach(function (el) {
-        
         var listItem = document.createElement('li'); //creates item in memory
+        listItem.addEventListener("click",popupCard);
         var atomicMassValue = document.createElement('p');
         var abbreviationSymbol = document.createElement('abbr');
         var abbrTitle = document.createAttribute('title');
@@ -66,7 +66,87 @@ function load() {
         listItem.appendChild(abbreviationSymbol);
         listItem.appendChild(elementTitle);
         abbreviationSymbol.setAttributeNode(abbrTitle);  //adds title attr to abbr element
-      }) 
+        
+         function popupCard() {
+     //var popupCard = this.value;
+     var cardMainDiv = document.getElementById('popupCard');
+          while (cardMainDiv.firstChild) {
+             cardMainDiv.removeChild(cardMainDiv.firstChild);
+        }
+        var cardDiv = document.createElement('div');
+        var imgDiv = document.createElement('div');
+        var image = document.createElement('img');
+        var contentDiv = document.createElement('div');
+        var cardTitle = document.createElement('h4');
+        var discoveredByTitle = document.createElement('p');
+        var discoveredBy = document.createElement('p');
+        var appearanceTitle = document.createElement('p');
+        var appearance = document.createElement('p');
+        var boilingPointTitle =document.createElement('p');
+        var boilingPoint = document.createElement('p');
+        var densityTitle = document.createElement('p');
+        var density = document.createElement('p');
+        var summaryTitle = document.createElement('p');
+        var summary = document.createElement('p');
+        //var srcImage = document.createAttribute('src');
+        var cardCloseButton = document.createElement('button');
+        var buttonText = document.createTextNode("Close"); 
+        var discoveredByText = document.createTextNode("Discovered By:"); 
+        var appearanceText = document.createTextNode("Appearance:"); 
+        var boilingPointText = document.createTextNode("Boiling Point (K):"); 
+        var densityText = document.createTextNode("Density (g/mL):"); 
+        var summaryText = document.createTextNode("Summary:");
+        
+        cardTitle.textContent = el.name;
+        discoveredBy.textContent = el.discovered_by;
+        appearance.textContent = el.appearance;
+        boilingPoint.textContent = el.boil;
+        density.textContent = el.density;
+        summary.textContent = el.summary;
+       // srcImage.textContent = el.spectral_img;
+        
+       cardDiv.className = "card";
+       imgDiv.className = "bg-img";
+       contentDiv.className = "content";
+       image.id = "showImage";
+       
+        //document.getElementById('old-block').innerHTML +=
+        discoveredByTitle.appendChild(discoveredByText); 
+        appearanceTitle.appendChild(appearanceText); 
+        boilingPointTitle.appendChild(boilingPointText); 
+        densityTitle.appendChild(densityText); 
+        summaryTitle.appendChild(summaryText);
+        cardCloseButton.appendChild(buttonText);
+        cardMainDiv.appendChild(cardDiv);
+        cardDiv.appendChild(imgDiv);
+        imgDiv.appendChild(image);
+        document.getElementById("showImage").src = `https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/${el.name}_Spectra.jpg/120px-${el.name}_Spectra.jpg`//el.spectral_img;
+       // image.setAttributeNode(srcImage);
+        imgDiv.appendChild(contentDiv);
+        contentDiv.appendChild(cardTitle);
+        contentDiv.appendChild(discoveredByTitle);
+        contentDiv.appendChild(discoveredBy);
+        contentDiv.appendChild(appearanceTitle);
+        contentDiv.appendChild(appearance);
+        contentDiv.appendChild(boilingPointTitle);
+        contentDiv.appendChild(boilingPoint);
+        contentDiv.appendChild(densityTitle);
+        contentDiv.appendChild(density);
+        contentDiv.appendChild(summaryTitle);
+        contentDiv.appendChild(summary);
+        contentDiv.appendChild(cardCloseButton);
+
+        
+        
+         //console.log();
+        
+// filterElements(JSON.parse(json).elements);
+   console.log(elements);    
+ }
+    console.log('finish');
+        
+      })
+      
      //function for search box
     function filterElements() {
       var elementSearch = this.value;
@@ -95,12 +175,12 @@ function load() {
           }
         }
       } 
-   
-  // filterElements(JSON.parse(json).elements);
-   console.log(elements);
-    
+
   });
-}
+  
+}  
+  
+    //  window.onload = popupCard;
 
 window.onload = load;
 
@@ -121,4 +201,6 @@ window.onload = load;
    b();
 }
 
-a(); */
+a(); 
+//var myNode = document.getElementById("popupCard");
+           // myNode.innerHTML = ''; */

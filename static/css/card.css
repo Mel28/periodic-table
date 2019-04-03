@@ -1,3 +1,7 @@
+#popup {
+  z-index: 10;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 500px;
@@ -7,13 +11,16 @@
 body{
     font-family: 'Crete Round', serif;
     font-size: medium;
+    
 }
-span{
-    font-style: bold;
-}
+
 .card {
-  border: 1px solid #f98181;
   border-radius: .25em;
+  border: 1px solid #0370af;
+ /* border: 1px solid #f98181;
+  background: rgba(232, 150, 226, .2)
+  background: rgba(249, 129, 129, .2);*/
+   background: rgba(91, 194, 234, .2);
 }
 
 img {
