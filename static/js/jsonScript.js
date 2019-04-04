@@ -109,6 +109,7 @@ function load() {
        imgDiv.className = "bg-img";
        contentDiv.className = "content";
        image.id = "showImage";
+       cardCloseButton.id = "close";
        
         //document.getElementById('old-block').innerHTML +=
         discoveredByTitle.appendChild(discoveredByText); 
@@ -136,6 +137,11 @@ function load() {
         contentDiv.appendChild(summaryTitle);
         contentDiv.appendChild(summary);
         contentDiv.appendChild(cardCloseButton);
+        
+          var close = document.getElementById('close');
+	          close.addEventListener('click', event => {
+                cardMainDiv.innerHTML = cardMainDiv.style.display = "none";
+	       });
 
         
         
@@ -144,6 +150,7 @@ function load() {
 // filterElements(JSON.parse(json).elements);
    console.log(elements);    
  }
+         
     console.log('finish');
         
       })
