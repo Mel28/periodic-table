@@ -25,15 +25,15 @@ function loadJSON(callback) {
 //binds to html input box
 function load() {
  
-  loadJSON(function(json) {
-    var input = document.getElementById("elementSearch");
-    var elements = JSON.parse(json).elements;
-    //rendering HTML with JavaScript adding list item to ordered list
-    var orderList = document.querySelector('.periodic-table');
+    loadJSON(function(json) {
+        var input = document.getElementById("elementSearch");
+        var elements = JSON.parse(json).elements;
+        //rendering HTML with JavaScript adding list item to ordered list
+        var orderList = document.querySelector('.periodic-table');
     
-    input.addEventListener("input",filterElements);
+        input.addEventListener("input",filterElements);
     
-    //using chaining and the .map method, tells code to access elements var (json data), and target atomic_mass and return a new array rounded to nearest whole number. 
+        //using chaining and the .map method, tells code to access elements var (json data), and target atomic_mass and return a new array rounded to nearest whole number. 
     elements 
       .map(function(el) {
         
@@ -67,35 +67,34 @@ function load() {
         listItem.appendChild(elementTitle);
         abbreviationSymbol.setAttributeNode(abbrTitle);  //adds title attr to abbr element
         
-         function popupCard() {
-     //var popupCard = this.value;
-     var cardMainDiv = document.getElementById('popupCard');
-          while (cardMainDiv.firstChild) {
-             cardMainDiv.removeChild(cardMainDiv.firstChild);
-        }
-        var cardDiv = document.createElement('div');
-        var imgDiv = document.createElement('div');
-        var image = document.createElement('img');
-        var contentDiv = document.createElement('div');
-        var cardTitle = document.createElement('h4');
-        var discoveredByTitle = document.createElement('p');
-        var discoveredBy = document.createElement('p');
-        var appearanceTitle = document.createElement('p');
-        var appearance = document.createElement('p');
-        var boilingPointTitle =document.createElement('p');
-        var boilingPoint = document.createElement('p');
-        var densityTitle = document.createElement('p');
-        var density = document.createElement('p');
-        var summaryTitle = document.createElement('p');
-        var summary = document.createElement('p');
-        //var srcImage = document.createAttribute('src');
-        var cardCloseButton = document.createElement('button');
-        var buttonText = document.createTextNode("Close"); 
-        var discoveredByText = document.createTextNode("Discovered By:"); 
-        var appearanceText = document.createTextNode("Appearance:"); 
-        var boilingPointText = document.createTextNode("Boiling Point (K):"); 
-        var densityText = document.createTextNode("Density (g/mL):"); 
-        var summaryText = document.createTextNode("Summary:");
+        function popupCard() {
+            var cardMainDiv = document.getElementById('popupCard');
+                cardMainDiv.style.display = "grid";
+            while (cardMainDiv.firstChild) {
+                cardMainDiv.removeChild(cardMainDiv.firstChild);
+            }
+            var cardDiv = document.createElement('div');
+            var imgDiv = document.createElement('div');
+            var image = document.createElement('img');
+            var contentDiv = document.createElement('div');
+            var cardTitle = document.createElement('h4');
+            var discoveredByTitle = document.createElement('p');
+            var discoveredBy = document.createElement('p');
+            var appearanceTitle = document.createElement('p');
+            var appearance = document.createElement('p');
+            var boilingPointTitle =document.createElement('p');
+            var boilingPoint = document.createElement('p');
+            var densityTitle = document.createElement('p');
+            var density = document.createElement('p');
+            var summaryTitle = document.createElement('p');
+            var summary = document.createElement('p');
+            var cardCloseButton = document.createElement('button');
+            var buttonText = document.createTextNode("Close"); 
+            var discoveredByText = document.createTextNode("Discovered By:"); 
+            var appearanceText = document.createTextNode("Appearance:"); 
+            var boilingPointText = document.createTextNode("Boiling Point (K):"); 
+            var densityText = document.createTextNode("Density (g/mL):"); 
+            var summaryText = document.createTextNode("Summary:");
         
         cardTitle.textContent = el.name;
         discoveredBy.textContent = el.discovered_by;
@@ -103,7 +102,6 @@ function load() {
         boilingPoint.textContent = el.boil;
         density.textContent = el.density;
         summary.textContent = el.summary;
-       // srcImage.textContent = el.spectral_img;
         
        cardDiv.className = "card";
        imgDiv.className = "bg-img";
@@ -111,7 +109,6 @@ function load() {
        image.id = "showImage";
        cardCloseButton.id = "close";
        
-        //document.getElementById('old-block').innerHTML +=
         discoveredByTitle.appendChild(discoveredByText); 
         appearanceTitle.appendChild(appearanceText); 
         boilingPointTitle.appendChild(boilingPointText); 
@@ -123,7 +120,6 @@ function load() {
         imgDiv.appendChild(image);
         document.getElementById("showImage").src = `http://chemistry.bd.psu.edu/jircitano/${el.symbol}.gif` // https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/${el.name}_Spectra.jpg/120px-${el.name}_Spectra.jpg`//el.spectral_img;
         document.getElementById("showImage").alt = "Unknown Spectral Image for Selected Element . . .";
-       // image.setAttributeNode(srcImage);
         imgDiv.appendChild(contentDiv);
         contentDiv.appendChild(cardTitle);
         contentDiv.appendChild(discoveredByTitle);
@@ -138,14 +134,10 @@ function load() {
         contentDiv.appendChild(summary);
         contentDiv.appendChild(cardCloseButton);
         
-          var close = document.getElementById('close');
-	          close.addEventListener('click', event => {
-                cardMainDiv.innerHTML = cardMainDiv.style.display = "none";
-	       });
+	       cardCloseButton.addEventListener('click', event => {
+            cardMainDiv.style.display = "none";
+	       }); 
 
-        
-        
-         //console.log();
         
 // filterElements(JSON.parse(json).elements);
    console.log(elements);    
@@ -153,7 +145,7 @@ function load() {
          
     console.log('finish');
         
-      })
+      });
       
      //function for search box
     function filterElements() {

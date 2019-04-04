@@ -59,10 +59,6 @@ button:hover {
   background-color: rgb(70, 185, 214);
 }
 
-button::after {
-  display: none;
-  visibility: hidden;
-}
 
 
 /*#showImage*/
