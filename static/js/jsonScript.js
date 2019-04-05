@@ -1,10 +1,4 @@
-/*function printFile(elementData) {
- var reader = new FileReader();
-  reader.onload = function(evt) {
-   console.log(evt.target.result);
-  };
-    reader.readAsText(file);
-}*/
+
 function loadJSON(callback) {
     var xobj = new XMLHttpRequest();
   
@@ -72,6 +66,7 @@ function load() {
         function popupCard() {
             var cardMainDiv = document.getElementById('popupCard');
                 cardMainDiv.style.display = "grid";
+                
             while (cardMainDiv.firstChild) {
                 cardMainDiv.removeChild(cardMainDiv.firstChild);
             }
@@ -151,7 +146,6 @@ function load() {
      //function for search box
     function filterElements() {
         var elementSearch = this.value;
-        // var elementsName = document.getElementsById('element-name');
         console.log(elementSearch);
      
         for (var i= 0; i < elements.length; i++) {
@@ -179,8 +173,6 @@ function load() {
   });
   
 }  
-  
-    //  window.onload = popupCard;
 
 window.onload = load;
 
@@ -203,4 +195,8 @@ window.onload = load;
 
 a(); 
 //var myNode = document.getElementById("popupCard");
-           // myNode.innerHTML = ''; */
+           // myNode.innerHTML = '';
+           
+           var el = document.getElementById('div-02'); */
+           
+           
