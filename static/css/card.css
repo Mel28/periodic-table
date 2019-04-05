@@ -67,17 +67,24 @@ button:hover {
     position: fixed;
    
   }
+  .card {
+    overflow: scroll;
+    
+  }
 }
 /* media querey for small devices */
 @media screen and (max-width: 480px) {
   #popupCard { 
     max-width: 320px;
     left: 20px;
-    position: absolute;
+    
   }
   .card {
     max-width: 320px;
     left: 20px;
+    overflow: scroll;
+    height: 60%;
+    
   }
 
   .bg-img {
