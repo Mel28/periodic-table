@@ -17,6 +17,20 @@
         <input type="text" id="elementSearch" name="inputbox" placeholder="Search the elements..." />
     </form>
     <div>
+        <div>
+            <!--<label for="element-select">Choose a search option:</label> -->
+
+<select id="search-select">
+   <!-- <option value="">--Please choose an optio <label for="element-select">Choose a search option:</label>n--</option> -->
+    <option value="name" selected>Name</option>
+    <option value="atomic_mass">Atomic Mass</option>
+    <option value="number">Atomic Number</option>
+    <option value="symbol">Element Symbol</option>
+    <option value="discovered_by">Discovered By</option>
+    <option value="appearance">Appearance</option>
+    <option value="summary">Summary</option>
+</select>
+        </div>
         <ol class="periodic-table">
         </ol>
     </div>
