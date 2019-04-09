@@ -86,6 +86,7 @@ function load() {
             var summaryTitle = document.createElement('p');
             var summary = document.createElement('p');
             var cardCloseButton = document.createElement('button');
+            var closeButtonDiv = document.createElement('div');
             var buttonText = document.createTextNode("Close"); 
             var discoveredByText = document.createTextNode("Discovered By:"); 
             var appearanceText = document.createTextNode("Appearance:"); 
@@ -105,6 +106,7 @@ function load() {
                 contentDiv.className = "content";
                 image.id = "showImage";
                 cardCloseButton.id = "close";
+                closeButtonDiv.className = "closeButtonDiv";
        
                 discoveredByTitle.appendChild(discoveredByText); 
                 appearanceTitle.appendChild(appearanceText); 
@@ -129,7 +131,8 @@ function load() {
                 contentDiv.appendChild(density);
                 contentDiv.appendChild(summaryTitle);
                 contentDiv.appendChild(summary);
-                contentDiv.appendChild(cardCloseButton);
+                imgDiv.appendChild(closeButtonDiv);
+                closeButtonDiv.appendChild(cardCloseButton);
         
                 cardCloseButton.addEventListener('click', event => {
                     cardMainDiv.style.display = "none";
