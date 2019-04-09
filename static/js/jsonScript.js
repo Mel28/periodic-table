@@ -65,7 +65,7 @@ function load() {
         
         function popupCard() {
             var cardMainDiv = document.getElementById('popupCard');
-                cardMainDiv.style.display = "grid";
+                cardMainDiv.style.display = "flex";
                 
             while (cardMainDiv.firstChild) {
                 cardMainDiv.removeChild(cardMainDiv.firstChild);

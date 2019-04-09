@@ -1,5 +1,5 @@
 #popupCard {
-  display: block;
+  display: none;
   width: 500px;
   position: fixed;
   top: 10vh;
