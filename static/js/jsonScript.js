@@ -14,7 +14,7 @@ function loadJSON(callback) {
         }
     };
   
-    xobj.send();  
+    xobj.send();
 }
 //binds to html input box
 function load() {
@@ -26,7 +26,10 @@ function load() {
         var orderList = document.querySelector('.periodic-table');
     
             input.addEventListener("input",filterElements);
-    
+            
+        var dropDownList = document.getElementById("searchSelect");
+            dropDownList.addEventListener("change",selectBoxSearch);
+            
         //using chaining and the .map method, tells code to access elements var (json data), and target atomic_mass and return a new array rounded to nearest whole number. 
     elements 
         .map(function(el) {
@@ -143,8 +146,9 @@ function load() {
         }
          
     console.log('finish');
+    
+     });
         
-        });
       
      //function for search box
     function filterElements() {
@@ -172,6 +176,20 @@ function load() {
                 }
         }
     } 
+    
+    function selectBoxSearch() { 
+        var selectBoxOption = this.value;
+        console.log(selectBoxOption);
+        var dropDownList = document.getElementById("searchSelect");
+            dropDownList.addEventListener("change", function() {
+        var dropDownOption = dropDownList.selectedOptions;
+        
+        for (var i=0; i<dropDownOption.length; i++);
+
+     });
+     
+}
+    
 
   });
   
