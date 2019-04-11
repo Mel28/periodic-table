@@ -10,3 +10,8 @@ function selectBoxSearch() {
 
 });
 }
+
+   function selectBoxSearch() { 
+        var selectBoxOption = this.value;
+        console.log(selectBoxOption);
+    }

@@ -24,12 +24,11 @@ function load() {
         var elements = JSON.parse(json).elements;
         //rendering HTML with JavaScript adding list item to ordered list
         var orderList = document.querySelector('.periodic-table');
-    
-            input.addEventListener("input",filterElements);
-            
         var dropDownList = document.getElementById("searchSelect");
-            dropDownList.addEventListener("change",selectBoxSearch);
-            
+        
+            //dropDownList.addEventListener("change",filterElements);
+            input.addEventListener("input",filterElements);
+        
         //using chaining and the .map method, tells code to access elements var (json data), and target atomic_mass and return a new array rounded to nearest whole number. 
     elements 
         .map(function(el) {
@@ -153,22 +152,39 @@ function load() {
      //function for search box
     function filterElements() {
         var elementSearch = this.value;
+        var selectBoxOption = dropDownList.value;
         console.log(elementSearch);
+        console.log(selectBoxOption);
      
         for (var i= 0; i < elements.length; i++) {
             var element = elements[i];
+            var dropDownListAppearance = element.appearance;
+            //console.log(dropDownListAppearance);
+            var dropDownListSymbol = element.symbol;
+            //console.log(dropDownListSymbol);
+            var dropDownListDiscoveredBy = element.discovered_by;
+            //console.log(dropDownListDiscoveredBy);
+            var dropDownListSummary = element.summary;
+            //console.log(dropDownListSummary);
             var elementHtml = document.getElementById(element.name);
             //sets atomic mass to 1 dp 
             var searchMass = element.atomic_mass.toFixed(1);
+            var dropDownListNumber = element.number;
+            //console.log(dropDownListNumber);
+            
+            
             //variables for case sensitive search .toLowerCase method
             var searchBoxLowerCase = elementSearch.toLowerCase();
             var elementsLowerCase = element.name.toLowerCase();
+            var symbolsLowerCase = dropDownListSymbol.toLowerCase();
             //variable for partial match search. Using .indexOf method
       
             var match = elementsLowerCase.indexOf(searchBoxLowerCase);
             var massNumMatch = searchMass.indexOf(searchBoxLowerCase);
+            var symbolMatch = symbolsLowerCase.indexOf(searchBoxLowerCase);
+            
             //if statement for displaying hidden when no match or partial match has been
-            if(match == -1 && massNumMatch == -1 ) {
+            if(match == -1 && massNumMatch == -1 && symbolMatch == -1 ) {
                 elementHtml.style.visibility = "hidden";
             }
                 else {
@@ -176,20 +192,6 @@ function load() {
                 }
         }
     } 
-    
-    function selectBoxSearch() { 
-        var selectBoxOption = this.value;
-        console.log(selectBoxOption);
-        var dropDownList = document.getElementById("searchSelect");
-            dropDownList.addEventListener("change", function() {
-        var dropDownOption = dropDownList.selectedOptions;
-        
-        for (var i=0; i<dropDownOption.length; i++);
-
-     });
-     
-}
-    
 
   });
   
