@@ -158,33 +158,30 @@ function load() {
      
         for (var i= 0; i < elements.length; i++) {
             var element = elements[i];
-            var dropDownListAppearance = element.appearance;
-            //console.log(dropDownListAppearance);
-            var dropDownListSymbol = element.symbol;
-            //console.log(dropDownListSymbol);
-            var dropDownListDiscoveredBy = element.discovered_by;
-            //console.log(dropDownListDiscoveredBy);
-            var dropDownListSummary = element.summary;
-            //console.log(dropDownListSummary);
-            var elementHtml = document.getElementById(element.name);
+            var dropDownOptionList = element[selectBoxOption];
+            console.log(dropDownOptionList);
+            
+           /*
             //sets atomic mass to 1 dp 
             var searchMass = element.atomic_mass.toFixed(1);
             var dropDownListNumber = element.number;
-            //console.log(dropDownListNumber);
-            
-            
+            //console.log(dropDownListNumber); */
+            var elementHtml = document.getElementById(element.name);
+           // var searchMass = element.atomic_mass.toFixed(1);
             //variables for case sensitive search .toLowerCase method
             var searchBoxLowerCase = elementSearch.toLowerCase();
             var elementsLowerCase = element.name.toLowerCase();
-            var symbolsLowerCase = dropDownListSymbol.toLowerCase();
+            var selectBoxLowerCase = dropDownOptionList.toLowerCase();
+            //var symbolsLowerCase = dropDownListSymbol.toLowerCase();
+            //var summaryLowerCase = dropDownListSummary.toLowerCase();
+            //var discoveredByLowerCase = dropDownListDiscoveredBy.toLowerCase(); 
+            
             //variable for partial match search. Using .indexOf method
-      
             var match = elementsLowerCase.indexOf(searchBoxLowerCase);
-            var massNumMatch = searchMass.indexOf(searchBoxLowerCase);
-            var symbolMatch = symbolsLowerCase.indexOf(searchBoxLowerCase);
+            var dropDownListMatch = selectBoxLowerCase.indexOf(searchBoxLowerCase);
             
             //if statement for displaying hidden when no match or partial match has been
-            if(match == -1 && massNumMatch == -1 && symbolMatch == -1 ) {
+            if(match == -1 && dropDownListMatch == -1) {
                 elementHtml.style.visibility = "hidden";
             }
                 else {

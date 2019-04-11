@@ -10,8 +10,60 @@ function selectBoxSearch() {
 
 });
 }
+    // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
    function selectBoxSearch() { 
         var selectBoxOption = this.value;
         console.log(selectBoxOption);
     }
+    
+   // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+ function filterElements() {
+        var elementSearch = this.value;
+        var selectBoxOption = dropDownList.value;
+        console.log(elementSearch);
+        console.log(selectBoxOption);
+     
+        for (var i= 0; i < elements.length; i++) {
+            var element = elements[i];
+            var dropDownOptionList = element[selectBoxOption];
+            console.log(dropDownOptionList);
+            
+           /*
+            //sets atomic mass to 1 dp 
+            var searchMass = element.atomic_mass.toFixed(1);
+            var dropDownListNumber = element.number;
+            //console.log(dropDownListNumber); */
+            var elementHtml = document.getElementById(element.name);
+             var searchMass = element.atomic_mass.toFixed(1);
+            //variables for case sensitive search .toLowerCase method
+            var searchBoxLowerCase = elementSearch.toLowerCase();
+            var elementsLowerCase = element.name.toLowerCase();
+            //var symbolsLowerCase = dropDownListSymbol.toLowerCase();
+            //var summaryLowerCase = dropDownListSummary.toLowerCase();
+            //var discoveredByLowerCase = dropDownListDiscoveredBy.toLowerCase(); 
+            
+            //variable for partial match search. Using .indexOf method
+            var match = elementsLowerCase.indexOf(searchBoxLowerCase);
+            var massNumMatch = searchMass.indexOf(searchBoxLowerCase);
+           // var symbolMatch = symbolsLowerCase.indexOf(searchBoxLowerCase); 
+            //var AtomicNumMatch = dropDownListNumber.indexOf(searchBoxLowerCase);
+           // var summaryMatch = summaryLowerCase.indexOf(searchBoxLowerCase);
+            
+            //if statement for displaying hidden when no match or partial match has been
+            if(match == -1 && massNumMatch == -1) {
+                elementHtml.style.visibility = "hidden";
+            }
+                else {
+                    elementHtml.style.visibility = "unset";
+                }
+        }
+    } 
+
+  });
+  
+}  
+
+window.onload = load;
