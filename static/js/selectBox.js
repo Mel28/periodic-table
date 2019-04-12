@@ -69,8 +69,9 @@ function selectBoxSearch() {
 window.onload = load;
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-   if(match == null) {
-                continue;
+  if(dataConfirmation == Number) {
+                dataConfirmation.toString();
+            
             }

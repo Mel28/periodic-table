@@ -159,12 +159,13 @@ function load() {
         for (var i= 0; i < elements.length; i++) {
             var element = elements[i];
             var dataConfirmation = element[selectBoxOption];
+                dataConfirmation = String(dataConfirmation);
             console.log(dataConfirmation);
             
-        if(dataConfirmation == null) {
-            continue;
-        }
-           
+            if(dataConfirmation == null) {
+                continue;
+            }
+
             var elementHtml = document.getElementById(element.name);
             
             var searchBoxLowerCase = elementSearch.toLowerCase();
