@@ -158,30 +158,23 @@ function load() {
      
         for (var i= 0; i < elements.length; i++) {
             var element = elements[i];
-            var dropDownOptionList = element[selectBoxOption];
-            console.log(dropDownOptionList);
+            var dataConfirmation = element[selectBoxOption];
+            console.log(dataConfirmation);
             
-           /*
-            //sets atomic mass to 1 dp 
-            var searchMass = element.atomic_mass.toFixed(1);
-            var dropDownListNumber = element.number;
-            //console.log(dropDownListNumber); */
+        if(dataConfirmation == null) {
+            continue;
+        }
+           
             var elementHtml = document.getElementById(element.name);
-           // var searchMass = element.atomic_mass.toFixed(1);
-            //variables for case sensitive search .toLowerCase method
-            var searchBoxLowerCase = elementSearch.toLowerCase();
-            var elementsLowerCase = element.name.toLowerCase();
-            var selectBoxLowerCase = dropDownOptionList.toLowerCase();
-            //var symbolsLowerCase = dropDownListSymbol.toLowerCase();
-            //var summaryLowerCase = dropDownListSummary.toLowerCase();
-            //var discoveredByLowerCase = dropDownListDiscoveredBy.toLowerCase(); 
             
+            var searchBoxLowerCase = elementSearch.toLowerCase();
+            var dataConfirmationLowerCase = dataConfirmation.toLowerCase();
+         
             //variable for partial match search. Using .indexOf method
-            var match = elementsLowerCase.indexOf(searchBoxLowerCase);
-            var dropDownListMatch = selectBoxLowerCase.indexOf(searchBoxLowerCase);
+            var match = dataConfirmationLowerCase.indexOf(searchBoxLowerCase);
             
             //if statement for displaying hidden when no match or partial match has been
-            if(match == -1 && dropDownListMatch == -1) {
+            if(match == -1) {
                 elementHtml.style.visibility = "hidden";
             }
                 else {
