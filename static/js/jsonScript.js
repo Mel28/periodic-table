@@ -26,7 +26,7 @@ function load() {
         var orderList = document.querySelector('.periodic-table');
         var dropDownList = document.getElementById("searchSelect");
         
-            //dropDownList.addEventListener("change",filterElements);
+            dropDownList.addEventListener("change",filterElements);
             input.addEventListener("input",filterElements);
         
         //using chaining and the .map method, tells code to access elements var (json data), and target atomic_mass and return a new array rounded to nearest whole number. 

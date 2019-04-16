@@ -70,8 +70,8 @@ window.onload = load;
 
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-  if(dataConfirmation == Number) {
+// don't use Number!
+  if(dataConfirmation == typeof 0) {
                 dataConfirmation.toString();
             
             }
