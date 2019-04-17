@@ -193,6 +193,7 @@ function load() {
   });
   
 }  
+
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -201,10 +202,12 @@ function getRandomIntInclusive(min, max) {
 console.log(getRandomIntInclusive(1, 119));
 
 function getRandomElement(){
-    var randomElement = getRandomIntInclusive();
-    
+    var randomElement = getRandomIntInclusive(1, 119);
+    var inputBox = document.getElementById("elementSearch");
+    var selectOption = document.getElementById("searchSelect");
+        selectOption.value = "number";
+        inputBox.value = randomElement;
 }
-
 
 window.onload = load;
 
