@@ -22,6 +22,13 @@ body {
 
 /*input box style*/
 
+#searchBoxWrapper{
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+
 #elementSearch{
 	
 	border:2px solid rgba(255,255,255,.5);
@@ -44,6 +51,8 @@ body {
 #selectBoxWrapper{
   position: relative;
   display: block;
+  text-align: center;
+  padding-top: 15px;
 }
 	
 #searchSelect{
@@ -53,14 +62,13 @@ body {
 	color:rgba(255,255,255,.5);
 	border-radius: 1em;
 	background:transparent;
-	outline:none;
+	outline: none;
+	position: relative;
 }
 
-#searchSelect::after{
+option {
   	color:rgba(255,255,255,.75);
-		border-color:rgba(255,255,255,.75);
-		outline:none;
-		background:transparent;
+		background: rgba(5, 9, 10, .9);
 }
 
 /*dimensions of element list item*/

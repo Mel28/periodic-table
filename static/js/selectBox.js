@@ -86,3 +86,26 @@ var obj = {
 };
 
 greet.call(obj);  // cats typically sleep between 12 and 16 hours
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+console.log(getRandomInt(119));
+// expected output: 0, 1 or 2
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
+console.log(getRandomIntInclusive(1, 119));
+
+function getRandomElement(){
+    var randomElement = getRandomIntInclusive();
+    
+}
