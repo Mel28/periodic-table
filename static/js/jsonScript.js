@@ -207,6 +207,7 @@ function getRandomElement(){
     var selectOption = document.getElementById("searchSelect");
         selectOption.value = "number";
         inputBox.value = randomElement;
+        inputBox.dispatchEvent(new Event("input"))
 }
 
 window.onload = load;
