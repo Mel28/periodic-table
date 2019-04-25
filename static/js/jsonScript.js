@@ -170,21 +170,27 @@ function load() {
         for (var i= 0; i < elements.length; i++) {
             var element = elements[i];
             var dataConfirmation = element[selectBoxOption];
-                dataConfirmation = String(dataConfirmation);
-            console.log(dataConfirmation);
+            
             
             if(dataConfirmation == null) {
                 continue;
             }
+            
+                dataConfirmation = "" + dataConfirmation;
+            
 
             var elementHtml = document.getElementById(element.name);
             
             var searchBoxLowerCase = elementSearch.toLowerCase();
             var dataConfirmationLowerCase = dataConfirmation.toLowerCase();
-         
+            if (selectBoxOption.value == "number") {
+              var match = element.number;
+            }
+            else {
             //variable for partial match search. Using .indexOf method
-            var match = dataConfirmationLowerCase.indexOf(searchBoxLowerCase);
-           
+             match = dataConfirmationLowerCase.indexOf(searchBoxLowerCase);
+            
+            }
             
             //if statement for displaying hidden when no match or partial match has been
             if(match == -1) {
