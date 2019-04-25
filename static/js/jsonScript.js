@@ -25,7 +25,8 @@ function load() {
         //rendering HTML with JavaScript adding list item to ordered list
         var orderList = document.querySelector('.periodic-table');
         var dropDownList = document.getElementById("searchSelect");
-        
+        var randomButton = document.getElementById("button");
+        randomButton.addEventListener("click",getRandomElement);
             
         input.addEventListener("input",filterElements);
         
@@ -214,7 +215,12 @@ function getRandomElement(){
     console.log(event);
     
     inputBox.dispatchEvent(event);
+    
+
 }
+
+
+
 
 window.onload = load;
 
