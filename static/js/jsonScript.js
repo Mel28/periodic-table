@@ -183,10 +183,10 @@ function load() {
             
             //if statement for displaying hidden when no match or partial match has been
             if(match == -1) {
-                elementHtml.style.visibility = "hidden";
+                elementHtml.style.display = "none";
             }
                 else {
-                    elementHtml.style.visibility = "unset";
+                    elementHtml.style.display = "flex";
                 }
         }
     } 
