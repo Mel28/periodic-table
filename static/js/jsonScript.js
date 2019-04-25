@@ -47,11 +47,13 @@ function load() {
             
             var listItem = document.createElement('li'); //creates item in memory
                 listItem.addEventListener("click",popupCard);
+            var atomicNumber = document.createElement('p');
             var atomicMassValue = document.createElement('p');
             var abbreviationSymbol = document.createElement('abbr');
             var abbrTitle = document.createAttribute('title');
             var elementTitle = document.createElement('p');
         
+                atomicNumber.textContent = el.number;
                 atomicMassValue.textContent = el.atomic_mass;
                 abbreviationSymbol.textContent = el.symbol;
                 abbrTitle.textContent = el.name;
@@ -60,11 +62,13 @@ function load() {
                 //sets the element's category as the class
                 listItem.setAttribute('class', el.category);
                 listItem.setAttribute('id', el.name);
+                atomicNumber.id = "number";
                 atomicMassValue.className = "atomic-mass";
                 abbreviationSymbol.className = "element";
                 elementTitle.className = "element-name";
         
                 orderList.appendChild(listItem); // adds to the DOM
+                listItem.appendChild(atomicNumber);
                 listItem.appendChild(atomicMassValue);
                 listItem.appendChild(abbreviationSymbol);
                 listItem.appendChild(elementTitle);
@@ -180,6 +184,7 @@ function load() {
          
             //variable for partial match search. Using .indexOf method
             var match = dataConfirmationLowerCase.indexOf(searchBoxLowerCase);
+           
             
             //if statement for displaying hidden when no match or partial match has been
             if(match == -1) {

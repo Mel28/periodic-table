@@ -113,11 +113,9 @@ option {
   font-weight: bold;
 }
 
-/* features of counter increment*/
+/* features of atomic number */
 
-.periodic-table > li:before {
-  counter-increment: element; 
-  content: counter(element);
+#number {
   position: absolute;
   top: 5px;
   left: 6px;
