@@ -131,13 +131,16 @@ textarea.addEventListener('input', function() {
 });
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-var form = document.querySelector('form');
-var textarea = document.getElementById('elementSearch');
 
-form.addEventListener('awesome', e => console.log(e.detail.text()));
+var SearchBox = document.getElementById('elementSearch');
 
-textarea.addEventListener('input', function() {
+SearchBox.addEventListener('input', function() {
   // Create and dispatch/trigger an event on the fly
   // Note: Optionally, we've also leveraged the "function expression" (instead of the "arrow function expression") so "this" will represent the element
   this.dispatchEvent(new CustomEvent('awesome', { bubbles: true, detail: { text: () => textarea.value } }))
 });
+
+
+element.click()
+
+inputField.dispatchEvent(new Event("input"))

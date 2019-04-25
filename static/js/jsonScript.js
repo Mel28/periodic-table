@@ -205,9 +205,15 @@ function getRandomElement(){
     var randomElement = getRandomIntInclusive(1, 119);
     var inputBox = document.getElementById("elementSearch");
     var selectOption = document.getElementById("searchSelect");
-        selectOption.value = "number";
-        inputBox.value = randomElement;
-        inputBox.dispatchEvent(new Event("input"))
+    
+    selectOption.value = "number";
+    inputBox.value = randomElement;
+    
+    var event = new Event("input");
+    
+    console.log(event);
+    
+    inputBox.dispatchEvent(event);
 }
 
 window.onload = load;
