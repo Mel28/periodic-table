@@ -172,6 +172,7 @@ function load() {
             var dataConfirmation = element[selectBoxOption];
             
             
+            
             if(dataConfirmation == null) {
                 continue;
             }
@@ -180,20 +181,28 @@ function load() {
             
 
             var elementHtml = document.getElementById(element.name);
+            //var atomicNumber = element.number;
             
             var searchBoxLowerCase = elementSearch.toLowerCase();
             var dataConfirmationLowerCase = dataConfirmation.toLowerCase();
-            if (selectBoxOption.value == "number") {
-              var match = element.number;
+            
+            if (selectBoxOption == "number") {
+                var match = dataConfirmation == searchBoxLowerCase;
             }
             else {
             //variable for partial match search. Using .indexOf method
-             match = dataConfirmationLowerCase.indexOf(searchBoxLowerCase);
+            match = dataConfirmationLowerCase.indexOf(searchBoxLowerCase);
+                if(match > -1){
+                match = true;
+            }
+            else {
+                 match = false;
+            //newMatch = (match > -1) ? "true" : "false";
             
             }
-            
+            }
             //if statement for displaying hidden when no match or partial match has been
-            if(match == -1) {
+            if(match == false) {
                 elementHtml.style.display = "none";
             }
                 else {

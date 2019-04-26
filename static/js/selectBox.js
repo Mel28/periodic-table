@@ -144,3 +144,11 @@ SearchBox.addEventListener('input', function() {
 element.click()
 
 inputField.dispatchEvent(new Event("input"))
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+      /*  if(match > -1){
+                return true;
+            }
+            else{
+                return false;
+            } */
