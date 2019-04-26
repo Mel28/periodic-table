@@ -192,22 +192,24 @@ function load() {
             else {
             //variable for partial match search. Using .indexOf method
             match = dataConfirmationLowerCase.indexOf(searchBoxLowerCase);
-                if(match > -1){
+           // if(match ? "> -1" : "-1");
+            
+          if(match > -1) {
                 match = true;
             }
             else {
                  match = false;
-            //newMatch = (match > -1) ? "true" : "false";
             
             }
             }
             //if statement for displaying hidden when no match or partial match has been
-            if(match == false) {
-                elementHtml.style.display = "none";
+            if(match === false) {
+                elementHtml.classList.add("hidden");
             }
                 else {
-                    elementHtml.style.display = "flex";
+                    elementHtml.classList.remove("hidden");
                 }
+              
         }
     } 
 

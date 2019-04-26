@@ -20,6 +20,10 @@ body {
   padding-left: 0;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /*input box style*/
 
 #searchBoxWrapper{
@@ -244,6 +248,11 @@ option {
   body{
     margin:20px;
   }
+  
+.hidden {
+  display: none !important;
+  
+}
  .periodic-table{
      display: flex;
      flex-direction: column;
